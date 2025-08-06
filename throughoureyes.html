@@ -1,97 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
   <title>Through Our Eyes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #000;
-      color: #ccc;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-top: 40px;
-      color: #fff;
-    }
-
-    .intro, .paragraph {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-      font-size: 1rem;
+      font-family: Arial, sans-serif;
+      margin: 20px;
       line-height: 1.6;
-    }
-
-    .single-photo-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 30px 20px;
-    }
-
-    .single-photo-container img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .photo-caption {
-      font-size: 0.95rem;
-      color: #cccccc;
-      font-style: italic;
-      margin-top: 10px;
-      text-align: center;
-      max-width: 600px;
+      background-color: #fff;
+      color: #000;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .gallery-container {
-      max-width: 800px;
-      margin: 40px auto 10px;
-      text-align: center;
-      position: relative;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
     }
 
-    .project-image {
-      width: 100%;
-      max-height: 400px;
-      object-fit: contain;
-      cursor: pointer;
-      transition: opacity 0.3s ease;
+    .intro-text {
+      margin-bottom: 40px;
+    }
+
+    /* Slideshow */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .slide {
+      display: none;
+      text-align: center;
+    }
+
+    .slide img {
+      max-width: 100%;
+      height: auto;
       border-radius: 8px;
     }
 
-    .dots-container {
-      margin-top: 15px;
+    .caption {
+      margin-top: 10px;
+      font-style: italic;
+      font-size: 0.95em;
+      color: #444;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.3s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .dots {
       text-align: center;
+      margin-top: 15px;
     }
 
     .dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin: 0 6px;
-      background-color: #555;
-      border-radius: 50%;
       cursor: pointer;
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
       transition: background-color 0.3s ease;
     }
 
-    .dot.active {
-      background-color: #fff;
+    .active-dot {
+      background-color: #333;
     }
 
+    /* Media grid */
     .media-title {
-      text-align: center;
-      font-size: 1.5rem;
-      color: #fff;
-      margin: 40px 0 20px;
+      font-size: 1.5em;
+      margin-top: 60px;
+      margin-bottom: 20px;
     }
 
     .media-grid {
@@ -99,171 +106,138 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 20px;
-      padding: 0 20px 40px;
+      max-width: 800px;
+      margin: 0 auto 40px;
+    }
+
+    .media-grid a {
+      flex: 1 1 calc(33.333% - 20px);
     }
 
     .media-grid a img {
-      width: 200px;
+      width: 100%;
       height: auto;
       border-radius: 8px;
-      transition: transform 0.2s ease;
+      display: block;
     }
 
-    .media-grid a img:hover {
-      transform: scale(1.05);
-    }
-
-    @media (max-width: 768px) {
-      body {
-        font-size: 16px;
-        padding: 0 10px;
-      }
-
-      .section-title {
-        font-size: 1.6rem;
-        margin-top: 30px;
-      }
-
-      .intro,
-      .paragraph {
-        padding: 0 10px;
-        font-size: 1rem;
-      }
-
-      .single-photo-container img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .gallery-container {
-        max-width: 100%;
-        margin: 30px 10px 10px;
-      }
-
-      .project-image {
-        max-width: 100%;
-        max-height: 300px;
-      }
-
-      .photo-caption {
-        font-size: 0.95rem;
-        padding: 0 10px;
-      }
-
-      .media-grid {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-      }
-
-      .media-grid a img {
-        max-width: 100%;
-        height: auto;
+    @media (max-width: 600px) {
+      .media-grid a {
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
-  <h2 class="section-title">Through Our Eyes</h2>
 
-  <div class="single-photo-container">
-    <img src="samos1.jpg" alt="Samos 1 Photo" />
-    <div class="photo-caption">
-      “I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned.”<br />
-      Photo by Mahdi, 15-year-old
+  <h1>Through Our Eyes</h1>
+
+  <p class="intro-text">
+    In 2019, I led a participatory photography project inside the refugee camp of Samos, Greece. A group of young people—mainly Afghan teenage girls—were given cameras and asked to document their daily lives. Their photos tell a raw and moving story of confinement, resilience, and identity. The project was exhibited internationally and covered by major media outlets.
+  </p>
+
+  <!-- Slideshow -->
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="samos2.png" alt="Slide 1">
+      <div class="caption">“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” – Samaneh, 16</div>
+    </div>
+    <div class="slide">
+      <img src="samos3.png" alt="Slide 2">
+      <div class="caption">“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big” – Zeynab</div>
+    </div>
+    <div class="slide">
+      <img src="samos4.png" alt="Slide 3">
+      <div class="caption">“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours” – Samaneh</div>
+    </div>
+    <div class="slide">
+      <img src="samos5.png" alt="Slide 4">
+      <div class="caption">“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism” – Omid, 15</div>
+    </div>
+    <div class="slide">
+      <img src="samos6.png" alt="Slide 5">
+      <div class="caption">“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work” – Omid</div>
+    </div>
+    <div class="slide">
+      <img src="samos7.png" alt="Slide 6">
+      <div class="caption">“I put this light here to make my container more beautiful” – Zeynab, 17</div>
+    </div>
+    <div class="slide">
+      <img src="samos8.png" alt="Slide 7">
+      <div class="caption">“In this photo, children are happy, and they are in a safe place. I like that” – Samaneh</div>
+    </div>
+    <div class="slide">
+      <img src="samos9.png" alt="Slide 8">
+      <div class="caption">“Women in Iran can’t drive scooters. I like the fact that here we can” – Samaneh</div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+      <span class="dot" onclick="currentSlide(6)"></span>
+      <span class="dot" onclick="currentSlide(7)"></span>
+      <span class="dot" onclick="currentSlide(8)"></span>
     </div>
   </div>
 
-  <div class="intro">
-    While volunteering in the refugee camp of Samos, I met a photo teacher and her students, children seeking asylum, at Still I Rise, a local NGO. They had been using disposable cameras to document their everyday lives in the camp. The images were stunning: raw, quiet, and deeply human. As we spent time with the photos, I suggested adding captions, not just to explain, but to let the kids shape how their stories were told. It gave the images even more depth and intention. They were planning a small exhibition in the school for their families and the local community, but I felt the project needed to reach further.
-  </div>
-
-  <div class="gallery-container">
-    <img
-      id="projectImage"
-      src="samos2.png"
-      alt="Gallery Image"
-      class="project-image"
-      onclick="nextImage()"
-    />
-    <div id="caption" class="photo-caption" style="margin-top:10px; max-width: 700px; margin-left:auto; margin-right:auto;">
-      “This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” Samaneh, 16
-    </div>
-    <div class="dots-container" id="dotsContainer"></div>
-  </div>
-
-  <div class="paragraph">
-    It seemed like one of the most direct and powerful ways for people outside the camp to connect with the realities, hopes, and journeys of displaced youth. I began turning the project into a global campaign, launching a call to action and coordinating exhibitions in over 30 cities across 10 countries for Universal Children’s Day in 2019, spanning from Australia to the United States, with many stops across Europe. Along the way, we partnered with organizations like DLA Piper and received coverage in The Guardian, The Washington Post, and The New Yorker.
-  </div>
-
-  <div class="media-title">Media coverage</div>
+  <!-- Media Section -->
+  <h2 class="media-title">Media coverage</h2>
   <div class="media-grid">
-    <a href="#"><img src="media1.jpg" alt="Media 1" /></a>
-    <a href="#"><img src="media2.jpg" alt="Media 2" /></a>
-    <a href="#"><img src="media3.jpg" alt="Media 3" /></a>
-    <a href="#"><img src="media4.jpg" alt="Media 4" /></a>
-    <a href="#"><img src="media5.jpg" alt="Media 5" /></a>
-    <a href="#"><img src="media6.jpg" alt="Media 6" /></a>
+    <a href="https://www.theguardian.com/world/2019/aug/12/through-our-eyes-pictures-young-migrants-samos-greece" target="_blank">
+      <img src="media1.png" alt="Guardian">
+    </a>
+    <a href="https://www.publico.pt/2019/08/27/p3/fotogaleria/criancas-refugiadas-fotografam-inferno-onde-vivem-portas-europa-396689" target="_blank">
+      <img src="media2.png" alt="Publico">
+    </a>
+    <a href="https://www.internazionale.it/foto/2019/08/19/through-our-eyes-migranti" target="_blank">
+      <img src="media3.png" alt="Internazionale">
+    </a>
+    <a href="https://www.washingtonpost.com/photography/2019/09/20/young-refugees-document-squalor-hope-around-them/" target="_blank">
+      <img src="media4.png" alt="Washington Post">
+    </a>
+    <a href="https://www.newyorker.com/news/dispatch/on-a-greek-island-that-welcomed-migrants-residents-and-refugees-feel-abandoned" target="_blank">
+      <img src="media5.png" alt="New Yorker">
+    </a>
+    <a href="https://www.tpi.it/spettacoli/through-our-eyes-samos-foto-bambini-20190914446987/" target="_blank">
+      <img src="media6.png" alt="TPI">
+    </a>
   </div>
 
+  <!-- JavaScript -->
   <script>
-    const images = [
-      { src: "samos2.png", caption: "“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” Samaneh, 16" },
-      { src: "samos3.png", caption: "“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big” Zeynab" },
-      { src: "samos4.png", caption: "“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours” Samaneh" },
-      { src: "samos5.png", caption: "“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism” Omid, 15" },
-      { src: "samos6.png", caption: "“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work” Omid" },
-      { src: "samos7.png", caption: "“I put this light here to make my container more beautiful” Zeynab, 17" },
-      { src: "samos8.png", caption: "“In this photo, children are happy, and they are in a safe place. I like that” Samaneh" },
-      { src: "samos9.png", caption: "“Women in Iran can’t drive scooters. I like the fact that here we can” Samaneh" }
-    ];
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-    let currentIndex = 0;
-
-    function showImage(index) {
-      const img = document.getElementById("projectImage");
-      const caption = document.getElementById("caption");
-      const dots = document.querySelectorAll(".dot");
-
-      currentIndex = index;
-
-      img.style.opacity = 0;
-      setTimeout(() => {
-        img.src = images[currentIndex].src;
-        caption.textContent = images[currentIndex].caption;
-        img.style.opacity = 1;
-
-        dots.forEach((dot, i) => {
-          dot.classList.toggle("active", i === currentIndex);
-        });
-      }, 200);
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
     }
 
-    function nextImage() {
-      const nextIndex = (currentIndex + 1) % images.length;
-      showImage(nextIndex);
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
     }
 
-    function dotClick(event) {
-      const index = parseInt(event.target.getAttribute("data-index"));
-      showImage(index);
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active-dot", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active-dot";
     }
-
-    function createDots() {
-      const dotsContainer = document.getElementById("dotsContainer");
-      images.forEach((_, i) => {
-        const dot = document.createElement("span");
-        dot.classList.add("dot");
-        if (i === 0) dot.classList.add("active");
-        dot.setAttribute("data-index", i);
-        dot.addEventListener("click", dotClick);
-        dotsContainer.appendChild(dot);
-      });
-    }
-
-    // Initialize dots and show the first image and caption on page load
-    createDots();
-    showImage(0);
   </script>
+
 </body>
 </html>
