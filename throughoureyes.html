@@ -6,39 +6,40 @@
   <title>Through Our Eyes</title>
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       margin: 0;
-      padding: 0;
+      padding: 2rem;
       background-color: #000;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2rem;
     }
 
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
     p {
       max-width: 800px;
       line-height: 1.6;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     .slideshow-container {
       position: relative;
       max-width: 800px;
       width: 100%;
+      margin-bottom: 1rem;
     }
 
     .slideshow-container img {
       width: 100%;
       height: auto;
-      display: block;
       border-radius: 8px;
+      cursor: pointer;
     }
 
     .caption {
@@ -66,33 +67,6 @@
     .dot.active {
       background-color: #fff;
     }
-
-    .media-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      max-width: 800px;
-      margin-top: 2rem;
-    }
-
-    .media-grid img {
-      width: calc(33.333% - 0.66rem);
-      height: auto;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 600px) {
-      .media-grid img {
-        width: 100%;
-      }
-    }
   </style>
 </head>
 <body>
@@ -101,94 +75,87 @@
   <img src="samos1.jpg" alt="samos1" style="max-width: 800px; width: 100%; border-radius: 8px; margin-bottom: 0.5rem;" />
   <p class="caption">“I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned.”<br><em>Photo by Mahdi, 15-year-old</em></p>
 
-  <p>While volunteering in the refugee camp of Samos, I met a photo teacher and her students, children seeking asylum, at Still I Rise, a local NGO. They had been using disposable cameras to document their everyday lives in the camp. The images were stunning: raw, quiet, and deeply human. As we spent time with the photos, I suggested adding captions, not just to explain, but to let the kids shape how their stories were told. It gave the images even more depth and intention. They were planning a small exhibition in the school for their families and the local community, but I felt the project needed to reach further.</p>
+  <p>While volunteering in the refugee camp of Samos, I met a photo teacher and her students, children seeking asylum, at Still I Rise, a local NGO. They had been using disposable cameras to document their everyday lives in the camp. The images were stunning: raw, quiet, and deeply human...</p>
 
-  <div class="slideshow-container" id="slideshow">
-    <img id="slide-image" src="samos2.png" alt="slideshow" />
-    <p class="caption" id="slide-caption"></p>
-    <div class="dots" id="dots-container"></div>
+  <div class="slideshow-container">
+    <img id="slideshow-image" src="samos2.png" alt="Slideshow Image">
+    <p class="caption" id="slideshow-caption"></p>
+    <div class="dots" id="dot-container"></div>
   </div>
 
-  <p>It seemed like one of the most direct and powerful ways for people outside the camp to connect with the realities, hopes, and journeys of displaced youth. I began turning the project into a global campaign, launching a call to action and coordinating exhibitions in over 30 cities across 10 countries for Universal Children’s Day in 2019, spanning from Australia to the United States, with many stops across Europe. Along the way, we partnered with organizations like DLA Piper and received coverage in The Guardian, The Washington Post, and The New Yorker.</p>
-
-  <h2>Media coverage</h2>
-  <div class="media-grid">
-    <a href="#"><img src="media1.jpg" alt="Media 1" /></a>
-    <a href="#"><img src="media2.jpg" alt="Media 2" /></a>
-    <a href="#"><img src="media3.jpg" alt="Media 3" /></a>
-    <a href="#"><img src="media4.jpg" alt="Media 4" /></a>
-    <a href="#"><img src="media5.jpg" alt="Media 5" /></a>
-    <a href="#"><img src="media6.jpg" alt="Media 6" /></a>
-  </div>
+  <p>It seemed like one of the most direct and powerful ways for people outside the camp to connect with the realities, hopes, and journeys of displaced youth. I began turning the project into a global campaign...</p>
 
   <script>
     const slides = [
       {
         src: "samos2.png",
-        caption: "“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning”<br><em>Samaneh, 16</em>"
+        caption: "“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning.”<br><em>Samaneh, 16</em>"
       },
       {
         src: "samos3.png",
-        caption: "“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big”<br><em>Zeynab</em>"
+        caption: "“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big.”<br><em>Zeynab</em>"
       },
       {
         src: "samos4.png",
-        caption: "“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours”<br><em>Samaneh</em>"
+        caption: "“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours.”<br><em>Samaneh</em>"
       },
       {
         src: "samos5.png",
-        caption: "“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism”<br><em>Omid, 15</em>"
+        caption: "“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism.”<br><em>Omid, 15</em>"
       },
       {
         src: "samos6.png",
-        caption: "“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work”<br><em>Omid</em>"
+        caption: "“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work.”<br><em>Omid</em>"
       },
       {
         src: "samos7.png",
-        caption: "“I put this light here to make my container more beautiful”<br><em>Zeynab, 17</em>"
+        caption: "“I put this light here to make my container more beautiful.”<br><em>Zeynab, 17</em>"
       },
       {
         src: "samos8.png",
-        caption: "“In this photo, children are happy, and they are in a safe place. I like that”<br><em>Samaneh</em>"
+        caption: "“In this photo, children are happy, and they are in a safe place. I like that.”<br><em>Samaneh</em>"
       },
       {
         src: "samos9.png",
-        caption: "“Women in Iran can’t drive scooters. I like the fact that here we can”<br><em>Samaneh</em>"
+        caption: "“Women in Iran can’t drive scooters. I like the fact that here we can.”<br><em>Samaneh</em>"
       }
     ];
 
-    let currentIndex = 0;
-    const slideImage = document.getElementById("slide-image");
-    const slideCaption = document.getElementById("slide-caption");
-    const dotsContainer = document.getElementById("dots-container");
+    let currentSlide = 0;
 
-    function updateSlide(index) {
-      slideImage.src = slides[index].src;
-      slideCaption.innerHTML = slides[index].caption;
+    const imageEl = document.getElementById("slideshow-image");
+    const captionEl = document.getElementById("slideshow-caption");
+    const dotContainer = document.getElementById("dot-container");
 
-      const dots = document.querySelectorAll(".dot");
-      dots.forEach((dot, i) => {
+    function showSlide(index) {
+      currentSlide = index;
+      const slide = slides[index];
+      imageEl.src = slide.src;
+      captionEl.innerHTML = slide.caption;
+
+      document.querySelectorAll(".dot").forEach((dot, i) => {
         dot.classList.toggle("active", i === index);
       });
     }
 
-    slides.forEach((_, i) => {
+    function nextSlide() {
+      const next = (currentSlide + 1) % slides.length;
+      showSlide(next);
+    }
+
+    // Build dots
+    slides.forEach((_, index) => {
       const dot = document.createElement("span");
       dot.classList.add("dot");
-      if (i === 0) dot.classList.add("active");
-      dot.addEventListener("click", () => {
-        currentIndex = i;
-        updateSlide(currentIndex);
-      });
-      dotsContainer.appendChild(dot);
+      if (index === 0) dot.classList.add("active");
+      dot.addEventListener("click", () => showSlide(index));
+      dotContainer.appendChild(dot);
     });
 
-    slideImage.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateSlide(currentIndex);
-    });
+    imageEl.addEventListener("click", nextSlide);
 
-    updateSlide(currentIndex);
+    // Init
+    showSlide(currentSlide);
   </script>
 </body>
 </html>
