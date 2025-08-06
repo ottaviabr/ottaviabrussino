@@ -1,129 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Through Our Eyes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      background-color: #000;
+      color: #f0f0f0;
       line-height: 1.6;
-      background-color: #fff;
-      color: #000;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 20px;
     }
 
     h1 {
-      font-size: 2em;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
 
-    .intro-text {
-      margin-bottom: 40px;
+    .project-photo {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    .caption {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 20px auto;
+      font-size: 16px;
     }
 
     /* Slideshow */
     .slideshow-container {
       position: relative;
-      max-width: 100%;
-      margin-bottom: 40px;
+      max-width: 600px;
+      margin: 40px auto;
     }
 
-    .slide {
+    .mySlides {
       display: none;
+    }
+
+    .slide-img {
+      width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+    }
+
+    .slide-caption {
+      color: #f0f0f0;
+      font-size: 14px;
       text-align: center;
+      margin-top: 8px;
     }
 
-    .slide img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .caption {
+    .dot-container {
+      text-align: center;
       margin-top: 10px;
-      font-style: italic;
-      font-size: 0.95em;
-      color: #444;
-    }
-
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.3s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-      background-color: rgba(0,0,0,0.4);
-    }
-
-    .next {
-      right: 0;
-      border-radius: 3px 0 0 3px;
-    }
-
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.6);
-    }
-
-    .dots {
-      text-align: center;
-      margin-top: 15px;
     }
 
     .dot {
-      cursor: pointer;
       height: 10px;
       width: 10px;
-      margin: 0 5px;
+      margin: 0 4px;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
-      transition: background-color 0.3s ease;
+      cursor: pointer;
     }
 
-    .active-dot {
-      background-color: #333;
+    .active {
+      background-color: #f0f0f0;
     }
 
-    /* Media grid */
-    .media-title {
-      font-size: 1.5em;
+    /* Media coverage */
+    h2 {
+      font-size: 24px;
+      text-align: center;
       margin-top: 60px;
-      margin-bottom: 20px;
     }
 
-    .media-grid {
+    .media-coverage {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
-      max-width: 800px;
-      margin: 0 auto 40px;
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    .media-grid a {
-      flex: 1 1 calc(33.333% - 20px);
+    .media-coverage a {
+      width: 30%;
+      min-width: 150px;
     }
 
-    .media-grid a img {
+    .media-coverage img {
       width: 100%;
       height: auto;
-      border-radius: 8px;
-      display: block;
+      border: 1px solid #333;
     }
 
-    @media (max-width: 600px) {
-      .media-grid a {
-        flex: 1 1 100%;
+    @media screen and (max-width: 768px) {
+      .media-coverage a {
+        width: 45%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .media-coverage a {
+        width: 90%;
       }
     }
   </style>
@@ -132,111 +125,103 @@
 
   <h1>Through Our Eyes</h1>
 
-  <p class="intro-text">
-    In 2019, I led a participatory photography project inside the refugee camp of Samos, Greece. A group of young people—mainly Afghan teenage girls—were given cameras and asked to document their daily lives. Their photos tell a raw and moving story of confinement, resilience, and identity. The project was exhibited internationally and covered by major media outlets.
+  <img src="samos1.jpg" alt="samos1" class="project-photo" />
+  <div class="caption">“I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned” — Mahdi, 15</div>
+
+  <p>
+    While volunteering in the refugee camp of Samos, I met a photo teacher and her students, children seeking asylum, at Still I Rise, a local NGO. They had been using disposable cameras to document their everyday lives in the camp. The images were stunning: raw, quiet, and deeply human. As we spent time with the photos, I suggested adding captions, not just to explain, but to let the kids shape how their stories were told. It gave the images even more depth and intention. They were planning a small exhibition in the school for their families and the local community, but I felt the project needed to reach further.
   </p>
 
   <!-- Slideshow -->
   <div class="slideshow-container">
-    <div class="slide">
-      <img src="samos2.png" alt="Slide 1">
-      <div class="caption">“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” – Samaneh, 16</div>
+    <div class="mySlides">
+      <img src="samos2.png" class="slide-img" />
+      <div class="slide-caption">“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” — Samaneh, 16</div>
     </div>
-    <div class="slide">
-      <img src="samos3.png" alt="Slide 2">
-      <div class="caption">“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big” – Zeynab</div>
+    <div class="mySlides">
+      <img src="samos3.png" class="slide-img" />
+      <div class="slide-caption">“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big” — Zeynab</div>
     </div>
-    <div class="slide">
-      <img src="samos4.png" alt="Slide 3">
-      <div class="caption">“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours” – Samaneh</div>
+    <div class="mySlides">
+      <img src="samos4.png" class="slide-img" />
+      <div class="slide-caption">“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours” — Samaneh</div>
     </div>
-    <div class="slide">
-      <img src="samos5.png" alt="Slide 4">
-      <div class="caption">“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism” – Omid, 15</div>
+    <div class="mySlides">
+      <img src="samos5.png" class="slide-img" />
+      <div class="slide-caption">“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism” — Omid, 15</div>
     </div>
-    <div class="slide">
-      <img src="samos6.png" alt="Slide 5">
-      <div class="caption">“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work” – Omid</div>
+    <div class="mySlides">
+      <img src="samos6.png" class="slide-img" />
+      <div class="slide-caption">“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work” — Omid</div>
     </div>
-    <div class="slide">
-      <img src="samos7.png" alt="Slide 6">
-      <div class="caption">“I put this light here to make my container more beautiful” – Zeynab, 17</div>
+    <div class="mySlides">
+      <img src="samos7.png" class="slide-img" />
+      <div class="slide-caption">“I put this light here to make my container more beautiful” — Zeynab, 17</div>
     </div>
-    <div class="slide">
-      <img src="samos8.png" alt="Slide 7">
-      <div class="caption">“In this photo, children are happy, and they are in a safe place. I like that” – Samaneh</div>
+    <div class="mySlides">
+      <img src="samos8.png" class="slide-img" />
+      <div class="slide-caption">“In this photo, children are happy, and they are in a safe place. I like that” — Samaneh</div>
     </div>
-    <div class="slide">
-      <img src="samos9.png" alt="Slide 8">
-      <div class="caption">“Women in Iran can’t drive scooters. I like the fact that here we can” – Samaneh</div>
+    <div class="mySlides">
+      <img src="samos9.png" class="slide-img" />
+      <div class="slide-caption">“Women in Iran can’t drive scooters. I like the fact that here we can” — Samaneh</div>
     </div>
 
-    <a class="prev" onclick="plusSlides(-1)">❮</a>
-    <a class="next" onclick="plusSlides(1)">❯</a>
-
-    <div class="dots">
-      <span class="dot" onclick="currentSlide(1)"></span>
-      <span class="dot" onclick="currentSlide(2)"></span>
-      <span class="dot" onclick="currentSlide(3)"></span>
-      <span class="dot" onclick="currentSlide(4)"></span>
-      <span class="dot" onclick="currentSlide(5)"></span>
-      <span class="dot" onclick="currentSlide(6)"></span>
-      <span class="dot" onclick="currentSlide(7)"></span>
-      <span class="dot" onclick="currentSlide(8)"></span>
+    <div class="dot-container">
+      <span class="dot" onclick="showSlide(0)"></span>
+      <span class="dot" onclick="showSlide(1)"></span>
+      <span class="dot" onclick="showSlide(2)"></span>
+      <span class="dot" onclick="showSlide(3)"></span>
+      <span class="dot" onclick="showSlide(4)"></span>
+      <span class="dot" onclick="showSlide(5)"></span>
+      <span class="dot" onclick="showSlide(6)"></span>
+      <span class="dot" onclick="showSlide(7)"></span>
     </div>
   </div>
 
-  <!-- Media Section -->
-  <h2 class="media-title">media coverage</h2>
-  <div class="media-grid">
+  <p>
+    It seemed like one of the most direct and powerful ways for people outside the camp to connect with the realities, hopes, and journeys of displaced youth. I began turning the project into a global campaign, launching a call to action and coordinating exhibitions in over 30 cities across 10 countries for Universal Children’s Day in 2019, spanning from Australia to the United States, with many stops across Europe. Along the way, we partnered with organizations like DLA Piper and received coverage in The Guardian, The Washington Post, and The New Yorker.
+  </p>
+
+  <h2>Media coverage</h2>
+  <div class="media-coverage">
     <a href="https://www.theguardian.com/world/2019/aug/12/through-our-eyes-pictures-young-migrants-samos-greece" target="_blank">
-      <img src="media1.png" alt="Guardian">
+      <img src="media1.png" alt="Media 1" />
     </a>
     <a href="https://www.publico.pt/2019/08/27/p3/fotogaleria/criancas-refugiadas-fotografam-inferno-onde-vivem-portas-europa-396689" target="_blank">
-      <img src="media2.png" alt="Publico">
+      <img src="media2.png" alt="Media 2" />
     </a>
     <a href="https://www.internazionale.it/foto/2019/08/19/through-our-eyes-migranti" target="_blank">
-      <img src="media3.png" alt="Internazionale">
+      <img src="media3.png" alt="Media 3" />
     </a>
     <a href="https://www.washingtonpost.com/photography/2019/09/20/young-refugees-document-squalor-hope-around-them/" target="_blank">
-      <img src="media4.png" alt="Washington Post">
+      <img src="media4.png" alt="Media 4" />
     </a>
     <a href="https://www.newyorker.com/news/dispatch/on-a-greek-island-that-welcomed-migrants-residents-and-refugees-feel-abandoned" target="_blank">
-      <img src="media5.png" alt="New Yorker">
+      <img src="media5.png" alt="Media 5" />
     </a>
     <a href="https://www.tpi.it/spettacoli/through-our-eyes-samos-foto-bambini-20190914446987/" target="_blank">
-      <img src="media6.png" alt="TPI">
+      <img src="media6.png" alt="Media 6" />
     </a>
   </div>
 
-  <!-- JavaScript -->
   <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("mySlides");
+    const dots = document.getElementsByClassName("dot");
 
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("slide");
-      let dots = document.getElementsByClassName("dot");
-      if (n > slides.length) { slideIndex = 1 }
-      if (n < 1) { slideIndex = slides.length }
-      for (i = 0; i < slides.length; i++) {
+    function showSlide(n) {
+      for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
+        dots[i].classList.remove("active");
       }
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active-dot", "");
-      }
-      slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active-dot";
+      slides[n].style.display = "block";
+      dots[n].classList.add("active");
+      slideIndex = n;
     }
+
+    // Show first slide
+    showSlide(0);
   </script>
 
 </body>
