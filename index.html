@@ -1,75 +1,250 @@
-<!-- Only the relevant changes are included for clarity -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ottavia Brussino</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
-<!-- Project Caption Fix (spacing) -->
-<div class="project-caption">
-    <a href="https://www.povertyactionlab.org/yhdessa-together-documentary-photo-project-inclusion-and-friendship-finnish-schools" target="_blank" style="color: #cccccc; text-decoration: none;">
-        <span class="project-title">Yhdessä (Together)</span>
-    </a>: A digital storytelling photodocumentary on inclusion and friendship in Finnish schools.
-</div>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<!-- CSS fix: Make vertical photo narrower, keep same height -->
-<style>
-    .project-vertical img {
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+    }
+
+    .name-section {
+      margin-bottom: 80px;
+    }
+
+    .name {
+      font-size: 2.4rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 40px;
+      color: #ffffff;
+      text-align: left;
+    }
+
+    .bio {
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.8;
+      color: #cccccc;
+      max-width: 700px;
+      font-weight: 400;
+    }
+
+    .section {
+      margin-bottom: 100px;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    .section-intro {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #cccccc;
+      margin-bottom: 50px;
+      max-width: 700px;
+      font-weight: 400;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: 0 auto;
+      background: #111111;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .slide {
+      display: none;
+      position: relative;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .slide-placeholder {
+      width: 100%;
+      height: 500px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666666;
+      font-size: 0.9rem;
+      border: 1px solid #333333;
+      font-weight: 300;
+    }
+
+    .dots-container {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    .dot {
+      height: 8px;
+      width: 8px;
+      margin: 0 6px;
+      background-color: #333333;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: #ffffff;
+    }
+
+    .dot:hover {
+      background-color: #666666;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .project {
+      text-align: left;
+    }
+
+    .project img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    .project-horizontal img,
+    .project-horizontal .project-placeholder {
+      height: 300px;
+    }
+
+    .project-vertical img,
+    .project-vertical .project-placeholder {
+      height: 300px;
+      width: 85%;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .project-placeholder {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #333333;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666666;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .project-caption {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #cccccc;
+      font-weight: 300;
+    }
+
+    .project-title {
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 40px 20px;
+      }
+
+      .name {
+        font-size: 1.8rem;
+        letter-spacing: 0.3px;
+      }
+
+      .section-title {
+        font-size: 1.4rem;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .project-vertical img,
+      .project-vertical .project-placeholder,
+      .project-horizontal img,
+      .project-horizontal .project-placeholder {
+        height: 200px;
+      }
+
+      .slide img,
+      .slide-placeholder {
         height: 300px;
-        width: 85%; /* Reduce width from 100% */
-        object-fit: contain; /* Show full image */
-        display: block;
-        margin: 0 auto;
-    }
-</style>
-
-<!-- HTML in the slideshow section: make each image clickable -->
-<div class="slideshow-container">
-    <div class="slide active">
-        <img src="artist.jpeg" alt="Purple wall with yellow window" onclick="nextSlide()">
-    </div>
-    <div class="slide">
-        <img src="namib.jpg" alt="Desert dunes landscape" onclick="nextSlide()">
-    </div>
-    <div class="slide">
-        <img src="man.jpg" alt="Figure walking through misty forest" onclick="nextSlide()">
-    </div>
-    <div class="slide">
-        <img src="uzbekistan.jpg" alt="Silhouetted building at golden hour" onclick="nextSlide()">
-    </div>
-    <div class="slide">
-        <img src="walk.jpg" alt="People on rural road" onclick="nextSlide()">
-    </div>
-</div>
-
-<!-- JS update: add nextSlide() function -->
-<script>
-    let slideIndex = 1;
-    const slides = document.querySelectorAll('.slide');
-    const dots = document.querySelectorAll('.dot');
-
-    function showSlide(n) {
-        if (n > slides.length) { slideIndex = 1; }
-        if (n < 1) { slideIndex = slides.length; }
-
-        slides.forEach(slide => slide.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        slides[slideIndex - 1].classList.add('active');
-        dots[slideIndex - 1].classList.add('active');
+      }
     }
 
-    function currentSlide(n) {
-        slideIndex = n;
-        showSlide(slideIndex);
+    @media (max-width: 480px) {
+      .name {
+        font-size: 1.6rem;
+      }
+
+      .bio,
+      .section-intro,
+      .project-caption {
+        font-size: 0.9rem;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+      }
     }
-
-    function nextSlide() {
-        slideIndex++;
-        showSlide(slideIndex);
-    }
-
-    // Auto-advance slideshow every 6 seconds
-    setInterval(() => {
-        slideIndex++;
-        showSlide(slideIndex);
-    }, 6000);
-
-    // Initialize
-    showSlide(slideIndex);
-</script>
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Name Section -->
+    <div class="name-section">
+      <h1 class="name">Ottavia Brussino</h1>
+      <div class="bio">
+        I work in social impact, focused on building connections that promote more inclusive and sustainable systems. Alongside this, I'm passionate about photography as a way to explore and reveal the ties between different cultures and experiences. I travel with my camera in hand, and I am passionate about curating photojournalism projects that share powerful and inspiring stories, bringing fresh perspectives from around the wo
