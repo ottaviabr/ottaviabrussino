@@ -1,350 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ottavia Brussino</title>
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+  <meta charset="UTF-8">
+  <title>My Work</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #fff;
+    }
 
-body {
-background-color: #000000;
-color: #ffffff;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
-font-weight: 400;
-line-height: 1.7;
-overflow-x: hidden;
-}
+    .gallery {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 40px 20px 10px;
+    }
 
-.container {
-max-width: 900px;
-margin: 0 auto;
-padding: 60px 40px;
-}
+    .project-image {
+      max-height: 400px;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      object-fit: contain;
+    }
 
-/* Name Section */
-.name-section {
-margin-bottom: 80px;
-}
+    .project-caption {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #cccccc;
+      font-weight: 300;
+    }
 
-.name {
-font-size: 2.4rem;
-font-weight: 500;
-letter-spacing: -0.02em;
-margin-bottom: 40px;
-color: #ffffff;
-text-align: left;
-}
+    .project-caption-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin: 20px 40px;
+    }
 
-.bio {
-font-size: 1rem;
-font-style: italic;
-line-height: 1.8;
-color: #cccccc;
-max-width: 700px;
-font-weight: 400;
-}
+    .caption-block {
+      flex: 1 1 30%;
+      min-width: 200px;
+    }
 
-/* Section Headings */
-.section {
-margin-bottom: 100px;
-}
+    a {
+      color: #cccccc;
+      text-decoration: none;
+    }
 
-.section-title {
-font-size: 1.7rem;
-font-weight: 500;
-letter-spacing: -0.01em;
-margin-bottom: 30px;
-color: #ffffff;
-}
-
-.section-intro {
-font-size: 1rem;
-line-height: 1.8;
-color: #cccccc;
-margin-bottom: 50px;
-max-width: 700px;
-font-weight: 400;
-}
-
-/* Slideshow */
-.slideshow-container {
-position: relative;
-max-width: 100%;
-margin: 0 auto;
-background: #111111;
-border-radius: 4px;
-overflow: hidden;
-}
-
-.slide {
-display: none;
-position: relative;
-}
-
-.slide.active {
-display: block;
-}
-
-.slide img {
-width: 100%;
-height: 500px;
-object-fit: cover;
-display: block;
-}
-
-.slide-placeholder {
-width: 100%;
-height: 500px;
-background: #1a1a1a;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #666666;
-font-size: 0.9rem;
-border: 1px solid #333333;
-font-weight: 300;
-}
-
-/* Navigation Dots */
-.dots-container {
-text-align: center;
-margin-top: 25px;
-}
-
-.dot {
-height: 8px;
-width: 8px;
-margin: 0 6px;
-background-color: #333333;
-border-radius: 50%;
-display: inline-block;
-cursor: pointer;
-transition: background-color 0.3s ease;
-}
-
-.dot.active {
-background-color: #ffffff;
-}
-
-.dot:hover {
-background-color: #666666;
-}
-
-/* Curated Projects */
-.projects-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 40px;
-align-items: start;
-}
-
-.project {
-text-align: left;
-}
-
-.project img {
-width: 100%;
-object-fit: cover;
-border-radius: 4px;
-margin-bottom: 20px;
-}
-
-.project-horizontal img,
-.project-horizontal .project-placeholder {
-height: 300px;
-}
-
-.project-vertical img {
-  height: 300px;
-  width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
-
-.project-placeholder {
-width: 100%;
-background: #1a1a1a;
-border: 1px solid #333333;
-border-radius: 4px;
-display: flex;
-align-items: center;
-justify-content: center;
-color: #666666;
-font-size: 0.9rem;
-margin-bottom: 20px;
-font-weight: 300;
-}
-
-.project-caption {
-font-size: 0.95rem;
-line-height: 1.6;
-color: #cccccc;
-font-weight: 300;
-}
-
-.project-title {
-font-weight: 400;
-font-style: italic;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-.container {
-padding: 40px 20px;
-}
-
-.name {
-font-size: 1.8rem;
-letter-spacing: 0.3px;
-}
-
-.section-title {
-font-size: 1.4rem;
-}
-
-.projects-grid {
-grid-template-columns: 1fr 1fr;
-gap: 20px;
-}
-
-.project-vertical img,
-.project-vertical .project-placeholder,
-.project-horizontal img,
-.project-horizontal .project-placeholder {
-height: 200px;
-}
-
-.slide img,
-.slide-placeholder {
-height: 300px;
-}
-}
-
-@media (max-width: 480px) {
-.name {
-font-size: 1.6rem;
-}
-
-.bio,
-.section-intro,
-.project-caption {
-font-size: 0.9rem;
-}
-
-.section-title {
-font-size: 1.2rem;
-}
-}
-</style>
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-<!-- Name Section -->
-<div class="name-section">
-<h1 class="name">Ottavia Brussino</h1>
-<div class="bio">
-I work in social impact, focused on building connections that promote more inclusive and sustainable systems. Alongside this, I'm passionate about photography as a way to explore and reveal the ties between different cultures and experiences. I travel with my camera in hand, and I am passionate about curating photojournalism projects that share powerful and inspiring stories, bringing fresh perspectives from around the world.
-</div>
-</div>
 
-<!-- My Work Section -->
-<div class="section">
-<h2 class="section-title">my work</h2>
-<div class="section-intro">
-I often travel, sometimes for work, sometimes out of curiosity. I enjoy discovering new places and cultures, and my camera usually comes with me. It helps me hold on to what I see and what I feel. My photography captures people within their environments and how they inhabit and move through their landscapes and places. I prefer to document these relationships between people and place without focusing on individual faces, looking instead for moments that speak to something more universal. This approach also reflects a commitment to ethical photography, especially in contexts where people's stories deserve care, not exposure. Whether documenting impact projects or wandering new streets, I use the lens to explore connection, memory, and emotion.
-</div>
+  <h2 class="section-title">My Work</h2>
 
-<div class="slideshow-container">
-  <div class="slide active">
-    <img src="artist.jpeg" alt="Purple wall with yellow window" onclick="nextSlide()">
+  <div class="gallery">
+    <img src="project1.jpg" alt="Project 1" class="project-image">
+    <img src="project2.jpg" alt="Project 2" class="project-image">
   </div>
-  <div class="slide">
-    <img src="namib.jpg" alt="Desert dunes landscape" onclick="nextSlide()">
+
+  <div class="project-caption-row">
+    <div class="project-caption caption-block">
+      Through Our Eyes, a global campaign of kid-led storytelling from a refugee camp in Greece.
+    </div>
+
+    <div class="project-caption caption-block">
+      Yhdessä Together project
+    </div>
+
+    <div class="project-caption caption-block">
+      <a href="https://www.povertyactionlab.org/yhdessa-together-documentary-photo-project-inclusion-and-friendship-finnish-schools" target="_blank">
+        Yhdessä (Together)
+      </a>: A digital storytelling photodocumentary on inclusion and friendship in Finnish schools.
+    </div>
   </div>
-  <div class="slide">
-    <img src="man.jpg" alt="Figure walking through misty forest" onclick="nextSlide()">
-  </div>
-  <div class="slide">
-    <img src="uzbekistan.jpg" alt="Silhouetted building at golden hour" onclick="nextSlide()">
-  </div>
-  <div class="slide">
-    <img src="walk.jpg" alt="People on rural road" onclick="nextSlide()">
-  </div>
-</div>
 
-<div class="dots-container">
-<span class="dot active" onclick="currentSlide(1)"></span>
-<span class="dot" onclick="currentSlide(2)"></span>
-<span class="dot" onclick="currentSlide(3)"></span>
-<span class="dot" onclick="currentSlide(4)"></span>
-<span class="dot" onclick="currentSlide(5)"></span>
-</div>
-</div>
-
-<!-- Curated Projects Section -->
-<div class="section">
-<h2 class="section-title">curated projects</h2>
-<div class="section-intro">
-I've curated storytelling projects that use photography to bridge local realities with wider audiences. What draws me in is the chance to connect different worlds, using images and narrative to shift perspective, spark dialogue, or carry a story further than it might have gone on its own.
-</div>
-
-<div class="projects-grid">
-<div class="project project-horizontal">
-<img src="project1.jpg" alt="Through Our Eyes project">
-<div class="project-caption">
-<span class="project-title">Through Our Eyes</span>, a global campaign of kid-led storytelling from a refugee camp in Greece.
-</div>
-</div>
-<div class="project project-vertical">
-<img src="project2.jpg" alt="Yhdessä Together project">
-<div class="project-caption">
-  <a href="https://www.povertyactionlab.org/yhdessa-together-documentary-photo-project-inclusion-and-friendship-finnish-schools" target="_blank" style="color: #cccccc; text-decoration: none;">
-    <span class="project-title">Yhdessä (Together)</span>
-  </a>: A digital storytelling photodocumentary on inclusion and friendship in Finnish schools.
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<script>
-let slideIndex = 1;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-
-function showSlide(n) {
-if (n > slides.length) { slideIndex = 1; }
-if (n < 1) { slideIndex = slides.length; }
-
-slides.forEach(slide => slide.classList.remove('active'));
-dots.forEach(dot => dot.classList.remove('active'));
-
-slides[slideIndex - 1].classList.add('active');
-dots[slideIndex - 1].classList.add('active');
-}
-
-function currentSlide(n) {
-slideIndex = n;
-showSlide(slideIndex);
-}
-
-// Auto-advance slideshow every 6 seconds
-setInterval(() => {
-slideIndex++;
-showSlide(slideIndex);
-}, 6000);
-
-// Initialize
-showSlide(slideIndex);
-</script>
 </body>
 </html>
