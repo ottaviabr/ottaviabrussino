@@ -161,12 +161,13 @@ margin-bottom: 20px;
 height: 300px;
 }
 
-.project-vertical img,
-.project-vertical .project-placeholder {
-height: 300px;
-            width: 100%;
-            object-fit: cover;
-            object-position: center center;
+.project-vertical img {
+  height: 300px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .project-placeholder {
@@ -263,21 +264,21 @@ I often travel, sometimes for work, sometimes out of curiosity. I enjoy discover
 </div>
 
 <div class="slideshow-container">
-<div class="slide active">
-<img src="artist.jpeg" alt="Purple wall with yellow window">
-</div>
-<div class="slide">
-<img src="namib.jpg" alt="Desert dunes landscape">
-</div>
-<div class="slide">
-<img src="man.jpg" alt="Figure walking through misty forest">
-</div>
-<div class="slide">
-<img src="uzbekistan.jpg" alt="Silhouetted building at golden hour">
-</div>
-<div class="slide">
-<img src="walk.jpg" alt="People on rural road">
-</div>
+  <div class="slide active">
+    <img src="artist.jpeg" alt="Purple wall with yellow window" onclick="nextSlide()">
+  </div>
+  <div class="slide">
+    <img src="namib.jpg" alt="Desert dunes landscape" onclick="nextSlide()">
+  </div>
+  <div class="slide">
+    <img src="man.jpg" alt="Figure walking through misty forest" onclick="nextSlide()">
+  </div>
+  <div class="slide">
+    <img src="uzbekistan.jpg" alt="Silhouetted building at golden hour" onclick="nextSlide()">
+  </div>
+  <div class="slide">
+    <img src="walk.jpg" alt="People on rural road" onclick="nextSlide()">
+  </div>
 </div>
 
 <div class="dots-container">
