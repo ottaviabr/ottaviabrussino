@@ -149,6 +149,8 @@ body {
 
 .project {
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .project img {
@@ -156,28 +158,23 @@ body {
   margin-bottom: 15px;
   display: block;
   object-fit: cover;
+  width: 100%;
 }
 
-/* Horizontal project image: wider, fixed height */
-.project-horizontal img {
+/* Both project images now have same width (100%) and consistent height */
+.project-horizontal img,
+.project-vertical img {
   width: 100%;
   height: 300px;
 }
 
-/* Vertical project image: fixed height, width auto to keep aspect ratio */
-.project-vertical img {
-  height: 300px;
-  width: auto;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-/* Caption styling */
+/* Caption styling - flex-grow ensures captions start at same relative position */
 .project-caption {
   font-size: 0.95rem;
   line-height: 1.6;
   color: #cccccc;
   font-weight: 300;
+  margin-top: auto;
 }
 
 .project-title {
@@ -308,8 +305,7 @@ body {
   <a href="/throughoureyes.html"
      target="_blank"
      style="color: #cccccc; text-decoration: none;">
-    Through Our Eyes
-  </a>, a global campaign of kid‑led storytelling from a refugee camp in Greece.
+    Through Our Eyes</a>, a global campaign of kid‑led storytelling from a refugee camp in Greece.
 </div>
     </div>
 
@@ -318,13 +314,11 @@ body {
       <img src="project2.jpg" alt="Yhdessä Together project" />
       <div class="project-caption">
         <a href="https://www.povertyactionlab.org/yhdessa-together-documentary-photo-project-inclusion-and-friendship-finnish-schools" target="_blank" style="color: #cccccc; text-decoration: none;">
-          Yhdessä (Together)
-        </a>: A digital storytelling photodocumentary on inclusion and friendship in Finnish schools.
+          Yhdessä (Together)</a>: A digital storytelling photodocumentary on inclusion and friendship in Finnish schools.
       </div>
     </div>
   </div>
 </div>
-  </div>
 </div>
 
 <script>
