@@ -17,45 +17,34 @@
       margin: 0 auto;
       padding: 0 15px;
     }
-    h1, h2 {
-      font-weight: 600;
-    }
     h1 {
+      font-weight: 600;
       font-size: 2.4rem;
       margin-bottom: 30px;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
     }
     p {
       margin-bottom: 20px;
       line-height: 1.6;
+      font-size: 1.1rem;
     }
-    /* Text block for story paragraphs */
-    .text-block {
-      margin-bottom: 40px;
-    }
-    /* Caption style */
-    .caption {
-      text-align: left;
-      max-width: 800px;
-      margin: 10px auto 30px auto;
-      font-style: italic;
-      font-size: 1rem;
-      line-height: 1.4;
-    }
-    /* First big photo */
     .main-photo {
       width: 100%;
       border-radius: 5px;
-      margin-bottom: 40px;
+      margin-bottom: 10px;
     }
-    /* Slideshow container */
-    .slideshow-container {
-      position: relative;
+    .caption {
+      font-style: italic;
+      font-size: 1rem;
+      margin-bottom: 30px;
+      line-height: 1.4;
+      text-align: left;
       max-width: 800px;
-      margin: 0 auto 40px auto;
+    }
+    /* Slideshow styles */
+    .slideshow-container {
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      position: relative;
     }
     .slides {
       display: none;
@@ -66,18 +55,14 @@
     .active-slide {
       display: block;
     }
-    /* Caption for slideshow images */
     .slide-caption {
       color: #ccc;
       font-size: 1rem;
       margin-top: 10px;
       text-align: left;
       max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
       font-style: italic;
     }
-    /* Dots */
     .dots-container {
       text-align: center;
       padding: 10px 0 40px 0;
@@ -102,10 +87,16 @@
       padding: 0 15px;
       color: white;
     }
+    #media-coverage h2 {
+      font-weight: 600;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: left;
+    }
     #media-coverage .media-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 15px;
     }
     #media-coverage .media-grid a img {
@@ -124,18 +115,13 @@
 
     <h1>Through Our Eyes</h1>
 
-    <div class="text-block">
-      <p>This project captures the real stories and moments of young migrants living on the island of Samos, Greece. Through their photographs and words, we glimpse a life shaped by hope, hardship, and resilience.</p>
-      <p>Each image shares a unique perspective, told by the migrants themselves. Their voices guide us beyond statistics and headlines, revealing the human side of this ongoing crisis.</p>
-    </div>
-
-    <!-- First main photo -->
     <img src="samos1.png" alt="Young migrants on Samos island" class="main-photo" />
-
-    <!-- Caption for first photo -->
     <div class="caption">
-      “I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned” — Mahdi, 15
+      “I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned”<br />
+      <strong>Photo by Mahdi, 15</strong>
     </div>
+
+    <p>While volunteering in the refugee camp of Samos, I met a photo teacher and her students, children seeking asylum, at Still I Rise, a local NGO. They had been using disposable cameras to document their everyday lives in the camp. The images were stunning: raw, quiet, and deeply human. As we spent time with the photos, I suggested adding captions, not just to explain, but to let the kids shape how their stories were told. It gave the images even more depth and intention. They were planning a small exhibition in the school for their families and the local community, but I felt the project needed to reach further.</p>
 
     <!-- Slideshow container -->
     <div class="slideshow-container">
@@ -161,7 +147,8 @@
       <span class="dot" data-index="7"></span>
     </div>
 
-    <!-- Featured In Section -->
+    <p>It seemed like one of the most direct and powerful ways for people outside the camp to connect with the realities, hopes, and journeys of displaced youth. I began turning the project into a global campaign, launching a call to action and coordinating exhibitions in over 30 cities across 10 countries for Universal Children’s Day in 2019, spanning from Australia to the United States, with many stops across Europe. Along the way, we partnered with organizations like DLA Piper and received coverage in The Guardian, The Washington Post, and The New Yorker.</p>
+
     <section id="media-coverage">
       <h2>Featured In</h2>
       <div class="media-grid">
@@ -189,47 +176,5 @@
   </div>
 
   <script>
-    // Slide captions matching images from samos2.png onward
     const captions = [
-      '“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” Samaneh, 16',
-      '“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so many” Nawroz, 16',
-      '“We wait here to see the doctor, but sometimes there is no doctor at all” Samaneh, 16',
-      '“That is a place where they kept people locked up, it was dirty and full of bugs” Samaneh, 16',
-      '“We carry water from the water buckets in the jungle, it is our source of water” Hamid, 17',
-      '“This is the light that was in the container where we slept when it was raining” Samaneh, 16',
-      '“This is my sister with her friends, smiling in the safe place we found” Samaneh, 16',
-      '“This is the women who drive scooters in the camp, they are free here” Samaneh, 16'
-    ];
-
-    const slides = document.querySelectorAll('.slides');
-    const dots = document.querySelectorAll('.dot');
-    const caption = document.getElementById('caption');
-    let currentIndex = 0;
-
-    function showSlide(index) {
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
-
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active-slide', i === index);
-      });
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-      });
-      caption.textContent = captions[index];
-      currentIndex = index;
-    }
-
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => {
-        showSlide(parseInt(dot.dataset.index));
-      });
-    });
-
-    // Optional: auto slide every 8 seconds
-    // setInterval(() => {
-    //   showSlide(currentIndex + 1);
-    // }, 8000);
-  </script>
-</body>
-</html>
+      '“This is the boat that carried
