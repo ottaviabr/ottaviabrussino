@@ -28,9 +28,13 @@
       font-size: 1.8rem;
       margin-bottom: 25px;
     }
+    p {
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    /* Text block for story paragraphs */
     .text-block {
       margin-bottom: 40px;
-      line-height: 1.6;
     }
     /* Caption style */
     .caption {
@@ -40,6 +44,12 @@
       font-style: italic;
       font-size: 1rem;
       line-height: 1.4;
+    }
+    /* First big photo */
+    .main-photo {
+      width: 100%;
+      border-radius: 5px;
+      margin-bottom: 40px;
     }
     /* Slideshow container */
     .slideshow-container {
@@ -51,6 +61,7 @@
       display: none;
       width: 100%;
       border-radius: 5px;
+      cursor: pointer;
     }
     .active-slide {
       display: block;
@@ -60,7 +71,7 @@
       color: #ccc;
       font-size: 1rem;
       margin-top: 10px;
-      text-align: center;
+      text-align: left;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
@@ -84,7 +95,7 @@
     .dot.active {
       background-color: white;
     }
-    /* Media coverage / Featured In section */
+    /* Featured In section */
     #media-coverage {
       max-width: 800px;
       margin: 40px auto 60px auto;
@@ -110,10 +121,20 @@
 </head>
 <body>
   <div class="container">
+
     <h1>Through Our Eyes</h1>
 
     <div class="text-block">
-      <p>“I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned” — Mahdi, 15</p>
+      <p>This project captures the real stories and moments of young migrants living on the island of Samos, Greece. Through their photographs and words, we glimpse a life shaped by hope, hardship, and resilience.</p>
+      <p>Each image shares a unique perspective, told by the migrants themselves. Their voices guide us beyond statistics and headlines, revealing the human side of this ongoing crisis.</p>
+    </div>
+
+    <!-- First main photo -->
+    <img src="samos1.png" alt="Young migrants on Samos island" class="main-photo" />
+
+    <!-- Caption for first photo -->
+    <div class="caption">
+      “I remember that day. There was a protest by the African community against the way the camp was being managed. They were asking to be transferred. Some of the toilets were burned” — Mahdi, 15
     </div>
 
     <!-- Slideshow container -->
@@ -164,25 +185,26 @@
         </a>
       </div>
     </section>
+
   </div>
 
   <script>
-    // Slide data: captions matching images
+    // Slide captions matching images from samos2.png onward
     const captions = [
       '“This is the boat that carried me and my family in the sea between Turkey and Greece at 3 o’clock in the morning” Samaneh, 16',
-      '“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so big” Zeynab',
-      '“I hate this queue – it’s the queue for the doctor. Last time, I had to wait 14 hours” Samaneh',
-      '“We are enclosed in a dirty place, far from the other Greek people. I don’t know if it is for security or for racism” Omid, 15',
-      '“In the ‘jungle’ people don’t have water. They use buckets to take water to their tents. It’s very hard work” Omid',
-      '“I put this light here to make my container more beautiful” Zeynab, 17',
-      '“In this photo, children are happy, and they are in a safe place. I like that” Samaneh',
-      '“Women in Iran can’t drive scooters. I like the fact that here we can” Samaneh'
+      '“People at the camp think that the cats eat the rats, but the cats are afraid of the rats because they are so many” Nawroz, 16',
+      '“We wait here to see the doctor, but sometimes there is no doctor at all” Samaneh, 16',
+      '“That is a place where they kept people locked up, it was dirty and full of bugs” Samaneh, 16',
+      '“We carry water from the water buckets in the jungle, it is our source of water” Hamid, 17',
+      '“This is the light that was in the container where we slept when it was raining” Samaneh, 16',
+      '“This is my sister with her friends, smiling in the safe place we found” Samaneh, 16',
+      '“This is the women who drive scooters in the camp, they are free here” Samaneh, 16'
     ];
 
-    let currentSlide = 0;
     const slides = document.querySelectorAll('.slides');
-    const captionText = document.getElementById('caption');
     const dots = document.querySelectorAll('.dot');
+    const caption = document.getElementById('caption');
+    let currentIndex = 0;
 
     function showSlide(index) {
       if (index >= slides.length) index = 0;
@@ -191,30 +213,23 @@
       slides.forEach((slide, i) => {
         slide.classList.toggle('active-slide', i === index);
       });
-      captionText.textContent = captions[index];
-
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === index);
       });
-      currentSlide = index;
+      caption.textContent = captions[index];
+      currentIndex = index;
     }
 
-    // Dot click event
     dots.forEach(dot => {
       dot.addEventListener('click', () => {
-        showSlide(parseInt(dot.getAttribute('data-index')));
+        showSlide(parseInt(dot.dataset.index));
       });
     });
 
-    // Image click event to go to next slide
-    slides.forEach(slide => {
-      slide.addEventListener('click', () => {
-        showSlide(currentSlide + 1);
-      });
-    });
-
-    // Initialize first slide
-    showSlide(currentSlide);
+    // Optional: auto slide every 8 seconds
+    // setInterval(() => {
+    //   showSlide(currentIndex + 1);
+    // }, 8000);
   </script>
 </body>
 </html>
